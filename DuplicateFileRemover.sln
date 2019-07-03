@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DuplicateFileRemover", "DuplicateFileFinder\DuplicateFileRemover.csproj", "{0BD2BA22-5D87-4B30-8458-7486385CE668}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DuplicateFileRemover", "DuplicateFileRemover\DuplicateFileRemover.csproj", "{DA529264-E999-4E15-8F19-9F0803B75198}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0BD2BA22-5D87-4B30-8458-7486385CE668}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0BD2BA22-5D87-4B30-8458-7486385CE668}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0BD2BA22-5D87-4B30-8458-7486385CE668}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0BD2BA22-5D87-4B30-8458-7486385CE668}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DA529264-E999-4E15-8F19-9F0803B75198}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA529264-E999-4E15-8F19-9F0803B75198}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA529264-E999-4E15-8F19-9F0803B75198}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA529264-E999-4E15-8F19-9F0803B75198}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {EDBC3D0D-4479-4015-BF9C-E9AA30D7F14E}
+		SolutionGuid = {11FA3A9C-8235-4D9E-9CC6-FF5EE0D93380}
 	EndGlobalSection
 EndGlobal
