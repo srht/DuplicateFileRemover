@@ -16,4 +16,4 @@ Duplicate file remover provides a hassle-free file remove experience for removin
 
   ### .net core 2.1
   
-  Minimum .net core 2.1 is required.
+  Minimum .net core 2.1 is required. 
