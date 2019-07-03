@@ -1,6 +1,6 @@
 # Duplicate File Remover
 
-Duplicate file remover provides a hassle-free file remove experience for removing the same files that you downloaded or copied from somewhere else for billion times named with numbers:)
+Duplicate file remover provides a hassle-free file remove experience for removing the same files that you downloaded or copied from somewhere else for billion times named with numbers:
 
 ## Running
 
