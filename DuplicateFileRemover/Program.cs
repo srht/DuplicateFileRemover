@@ -10,8 +10,8 @@ namespace DuplicateFileRemover
     {
         static void Main(string[] args)
         {
-            var files = Directory.GetFiles(args[0]).Select(i => new FileInfo(i));
-            var matchedFiles = new List<string>();
+            var files = Directory.GetFiles(args[0]).Select(i => new FileInfo(i)).ToList();
+            var matchedFiles = new List<FileInfo>();
 
             FileInfo targetFileInfo = files.First();
 
@@ -21,31 +21,49 @@ namespace DuplicateFileRemover
             {
                 targetFileInfo = f;
 
-                string targetFullNameBeginVal = targetFileInfo.FullName
-                    .Remove(Regex.Match(targetFileInfo.FullName, pattern).Index);
-
+                string targetFullNameBeginVal =
+                    targetFileInfo.FullName.Remove(
+                        Regex.IsMatch(targetFileInfo.FullName, pattern)?
+                        Regex.Match(targetFileInfo.FullName, pattern).Index
+                        :targetFileInfo.FullName.IndexOf(targetFileInfo.Extension));
+                
                 var filteredFiles = files.Where(m => m.Length == targetFileInfo.Length
                                                 && m.FullName.StartsWith(targetFullNameBeginVal)
                                                 && Regex.IsMatch(m.FullName, pattern)
                                                 && targetFileInfo.Exists
                                                 && m.Extension == targetFileInfo.Extension);
 
-                if (filteredFiles.Count() > 1 && !matchedFiles.Any(i=>i.StartsWith(targetFullNameBeginVal)))
+                if (filteredFiles.Count() > 0 && !matchedFiles.Any(i=>i.FullName.StartsWith(targetFullNameBeginVal)))
                 {
-                    matchedFiles.AddRange(filteredFiles.Select(i=>i.FullName));
+                    matchedFiles.AddRange(filteredFiles);
                 }
 
             }
 
-            for (int i = 0; i < matchedFiles.Count; i++)
+            long totalDeletedSize = 0;
+
+            foreach (var mf in matchedFiles)
             {
-                File.Delete(matchedFiles[i]);
-                Console.WriteLine(matchedFiles[i]+",");
+                Console.WriteLine($"{mf},");
             }
 
-            Console.WriteLine("Dosyaları silindi.");
+            Console.WriteLine("These files will be deleted permanently OK? Type OK if you are OK.");
+            string answer = Console.ReadLine();
 
-            Console.Read();
+            if (answer=="OK")
+            {
+                foreach (var mf in matchedFiles)
+                {
+                    File.Delete(mf.FullName);
+                    totalDeletedSize += mf.Length;
+                    Console.WriteLine($"{mf},");
+                }
+
+                Console.WriteLine($"Files deleted. {(totalDeletedSize / 1000000)} megabyte size saved on disk.");
+
+                Console.Read();
+            }
+            
         }
     }
 }
